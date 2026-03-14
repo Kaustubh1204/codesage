@@ -1,6 +1,14 @@
 import fs from "fs"
 import path from "path"
 
+const codeExtensions = [
+ ".ts",".tsx",
+ ".js",".jsx",
+ ".html",".css",
+ ".py",".go",".java",
+ ".cpp",".c",".rs"
+]
+
 export function scanRepo(repoPath: string) {
 
  const files: string[] = []
@@ -23,7 +31,11 @@ export function scanRepo(repoPath: string) {
 
    } else {
 
-    files.push(fullPath)
+    const ext = path.extname(item)
+
+    if(codeExtensions.includes(ext)){
+      files.push(fullPath)
+    }
 
    }
 

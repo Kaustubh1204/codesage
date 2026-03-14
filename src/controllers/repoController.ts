@@ -9,8 +9,6 @@ export async function connectRepo(req:any,res:any){
 
  const files = scanRepo(repoPath)
 
- console.log(files)
-
  res.json({
   message:"Repo cloned",
   path: repoPath,

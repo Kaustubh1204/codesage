@@ -32,3 +32,11 @@ model Function {
  fileId    String
  file      File   @relation(fields: [fileId], references: [id])
 }
+
+model CodeFile {
+  id        Int      @id @default(autoincrement())
+  repoName  String
+  path      String
+  language  String
+  createdAt DateTime @default(now())
+}
